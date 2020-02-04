@@ -6,7 +6,7 @@ import Menu from './Layout/Menu'
 import Slide from './Layout/Slide'
 import SideBanner from './Layout/SideBanner'
 import Home from './Layout/Home'
-
+import Product from './Layout/Product'
 class App extends React.Component {
   constructor(props) {
     super(props);
@@ -24,7 +24,8 @@ class App extends React.Component {
               <div id="main" class="col-lg-8 col-md-12 col-sm-12">
                 <Slide />
                 <Switch>
-                  <Route path='/' component={Home} />
+                  <Route path='/' exact component={Home} />
+                  <Route path='/product-detail/:id' component={Product} />
                 </Switch>
               </div>
               <SideBanner />

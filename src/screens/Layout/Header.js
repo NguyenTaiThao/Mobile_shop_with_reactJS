@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-
+import {Link} from 'react-router-dom'
 class Header extends Component {
   render() {
     return (
@@ -7,9 +7,9 @@ class Header extends Component {
         <div class="container">
           <div class="row">
             <div id="logo" class="col-lg-3 col-md-3 col-sm-12">
-              <h1><a href="#">
+              <h1><Link to="/">
                 <img class="img-fluid" src="images/logo.png" />
-              </a></h1>
+              </Link></h1>
             </div>
             <div id="search" class="col-lg-6 col-md-6 col-sm-12">
               <form class="form-inline">
