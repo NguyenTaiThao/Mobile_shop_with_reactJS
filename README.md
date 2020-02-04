@@ -2,11 +2,11 @@
 
 __1. Các cài đặt cần thiết khi chạy project__
 
-- lodash
+- [Lodash](https://lodash.com/docs/4.17.15)
 
             npm i -s lodash
 
-- moment
+- [Moment](https://momentjs.com/)
 
              npm i -s moment
  
