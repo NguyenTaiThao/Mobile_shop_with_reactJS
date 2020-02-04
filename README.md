@@ -1,6 +1,6 @@
 # Mobile_shop_with_reactJS
 
-1. Các cài đặt cần thiết khi chạy project
+__1. Các cài đặt cần thiết khi chạy project__
 
 - lodash
 
