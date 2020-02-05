@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-class Footer extends Component {
+class Menu extends Component {
   render() {
     return (
       <div class="row">
@@ -23,4 +23,4 @@ class Footer extends Component {
   }
 }
 
-export default Footer;
+export default Menu;

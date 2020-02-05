@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
-import * as API from '../../services/api';
+import * as API from '../services/api';
 import _ from 'lodash';
-import {Items} from '../../components'
+import {Items} from '../components'
 class Header extends Component {
   constructor(props){
     super(props)

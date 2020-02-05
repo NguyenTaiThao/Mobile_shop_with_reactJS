@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-class Header extends Component {
+class SideBar extends Component {
   render() {
     return (
       <div id="sidebar" class="col-lg-4 col-md-12 col-sm-12">
@@ -29,4 +29,4 @@ class Header extends Component {
   }
 }
 
-export default Header;
+export default SideBar;
