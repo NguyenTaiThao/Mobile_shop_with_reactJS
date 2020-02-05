@@ -8,7 +8,7 @@ class Footer extends Component {
           <div class="container">
             <div class="row">
               <div id="logo-2" class="col-lg-3 col-md-6 col-sm-12">
-                <h2><a href="#"><img src="images/logo-footer.png" /></a></h2>
+                <h2><a href="#"><img src="/images/logo-footer.png" /></a></h2>
                 <p>
                   Vietpro Academy thành lập năm 2009. Chúng tôi đào tạo chuyên sâu trong 2 lĩnh vực là Lập trình
                   Website & Mobile nhằm cung cấp cho thị trường CNTT Việt Nam những lập trình viên thực sự chất
