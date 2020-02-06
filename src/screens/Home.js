@@ -15,9 +15,6 @@ class Header extends Component {
     const { location } = this.props
     const query = new URLSearchParams(location.search);
     const queryString = query.get('query')
-    console.log("location",location)
-    console.log("query", query)
-    console.log("queryString",queryString)
   }
   async getProduct(){
     try{
@@ -28,8 +25,6 @@ class Header extends Component {
       const featurePrdData = _.get(featurePrd,'data.data')
       const lastestPrdData = _.get(lastestPrd, 'data.data')
       this.setState({featurePrdData,lastestPrdData})
-      // console.log(this.state.featurePrdData)
-      // console.log(this.state.lastestPrdData)
     }catch(error){
       console.log(error)
     }

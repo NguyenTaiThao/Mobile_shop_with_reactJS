@@ -17,4 +17,6 @@ export function getProductDetails(idProduct,params={}){return api.get(`/product/
 export function getProductComments(idProduct, params={}){return api.get(`/get-product-comments/${idProduct}`,params);}
 export function createNewComment(params){return api.post(`/create-comment`, params);}
 export function getProductByName(params){ return api.get(`/get-products`, params);}
+export function getCategories(params){ return api.get(`/get-categories`, params);}
+export function getCategoryProducts(categoryId, params){ return api.get(`/get-products?categoryId=${categoryId}`)}
 

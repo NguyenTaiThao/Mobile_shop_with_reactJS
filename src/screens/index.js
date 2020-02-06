@@ -8,6 +8,7 @@ import SideBanner from './Layout/SideBanner'
 import Home from './Home'
 import Product from './Product'
 import Search from './search';
+import Category from './Category'
 class App extends React.Component {
   constructor(props) {
     super(props);
@@ -28,6 +29,7 @@ class App extends React.Component {
                   <Route exact path="/" component={Home} />
                   <Route path="/product-detail/:productId" component={Product} />
                   <Route path="/search" component={Search} />
+                  <Route path="/category/:categoryId/:categoryName" component={Category} />
                 </Switch>
               </div>
               <SideBanner />
