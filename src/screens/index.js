@@ -7,6 +7,7 @@ import Slide from './Layout/Slide'
 import SideBanner from './Layout/SideBanner'
 import Home from './Home'
 import Product from './Product'
+import Search from './search';
 class App extends React.Component {
   constructor(props) {
     super(props);
@@ -26,6 +27,7 @@ class App extends React.Component {
                 <Switch>
                   <Route exact path="/" component={Home} />
                   <Route path="/product-detail/:productId" component={Product} />
+                  <Route path="/search" component={Search} />
                 </Switch>
               </div>
               <SideBanner />

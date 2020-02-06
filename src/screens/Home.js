@@ -12,6 +12,12 @@ class Header extends Component {
   }
   componentDidMount(){
     this.getProduct()
+    const { location } = this.props
+    const query = new URLSearchParams(location.search);
+    const queryString = query.get('query')
+    console.log("location",location)
+    console.log("query", query)
+    console.log("queryString",queryString)
   }
   async getProduct(){
     try{
