@@ -2,12 +2,14 @@ import React,{Component} from 'react'
 import {Items} from '../components/index'
 import _ from 'lodash'
 import * as API from '../services/api'
+import Loading from './Layout/Loading'
 class Category extends Component{
     constructor(props){
         super(props)
         this.state ={
             data:[],
-            name:''
+            name:'',
+            loading:true
         }
     }
     componentDidMount(){
@@ -18,6 +20,7 @@ class Category extends Component{
         const nextId = _.get(match, 'params.categoryId')
 
         if(nextId !== prevProps.match.params.categoryId){
+            this.setState({loading:true})
             this.getCategoryProduct(nextId)
         }
     }
@@ -29,6 +32,7 @@ class Category extends Component{
             const productList = await API.getProductByName({categoryId:(newId || categoryId)})
             this.setState({
                 data:_.get(productList,'data.data',[]),
+                loading:false,
                 name:categoryName
             })
         }catch(err){
@@ -36,9 +40,10 @@ class Category extends Component{
         }
     }
     render(){
-        const {data,name} = this.state
+        const {data,name,loading} = this.state
         return(
             <>
+                <Loading loading={loading}/>  
                 <div class="products">
                     <h3>{name} (hiện có {data.length} sản phẩm)</h3>
                     <div class="product-list card-deck">

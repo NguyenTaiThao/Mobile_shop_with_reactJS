@@ -2,12 +2,13 @@ import React, {Component} from 'react'
 import _ from 'lodash'
 import * as API from '../services/api'
 import {Items} from '../components/index'
-
+import Loading from './Layout/Loading'
 class Search extends Component {
     constructor(props){
         super(props)
         this.state = {
-            queryString:''
+            queryString:'',
+            loading:true
         }
     }
     componentDidMount(){
@@ -21,6 +22,7 @@ class Search extends Component {
         const currQueryString = currQuery.get('query')
 
         if(prevQueryString !== currQueryString){
+            this.setState({loading:true})
             this.getTargetData(currQueryString)
         }
     }
@@ -34,18 +36,22 @@ class Search extends Component {
         try{
             const result  = await API.getProductByName({name:(newQuery||queryString)})
             this.setState({
-                resultList: _.get(result, 'data.data', [])
+                resultList: _.get(result, 'data.data', []),
+                loading:false
             })
         }catch(error){
             console.log(error.message)
         }
     }
     render(){
-        const resultList = this.state.resultList
+        const {resultList,loading,queryString} = this.state
         return(
-            <>
+            <>  
+                <Loading loading={loading}/>
+                {!loading &&
+                <>
                 <div class="products">
-                    <div id="search-result">Kết quả tìm kiếm với sản phẩm <span>iPhone Xs Max 2 Sim - 256GB</span></div>
+                    <div id="search-result">Kết quả tìm kiếm với sản phẩm <span>"{queryString}"</span></div>
                     <div class="product-list card-deck">
                         {resultList && resultList.map((data,key) => <Items productDetails={data} key={data._id}/>)}  
                     </div>
@@ -60,6 +66,8 @@ class Search extends Component {
                         <li class="page-item"><a class="page-link" href="#">Trang sau</a></li>
                     </ul> 
                 </div>
+                </>
+                }
             </>
         )
     }
