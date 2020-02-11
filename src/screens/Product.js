@@ -3,6 +3,8 @@ import * as API from '../services/api';
 import _ from "lodash";
 import {getImageURL} from '../utils'
 import moment, { defaultFormat } from 'moment';
+import {addCart} from '../actions/cartAction'
+import {connect} from 'react-redux'
 
 const defaultCommentData = {
   name:'',
@@ -55,6 +57,12 @@ class Product extends Component {
         }
     })
   }
+  addCart = (productDetail) => {
+    const {dispatchAddCart, history} = this.props
+    console.log('pushed')
+    dispatchAddCart({...productDetail, quantity:1})
+    history.push('/cart')
+  }
   async submitNewComment(){
     const {formData} = this.state
     const {match} = this.props
@@ -93,7 +101,7 @@ class Product extends Component {
                                 <li id="price-number">{productDetail&&productDetail.price}đ</li>
                                 <li id="status">{isStock}</li>
                             </ul>
-                            <div id="add-cart"><a href="#">Mua ngay</a></div>
+                            <div id="add-cart"><a href="" onClick={() => this.addCart(productDetail)}>Mua ngay</a></div>
                         </div>
                     </div>
                     <div id="product-body" class="row">
@@ -156,5 +164,14 @@ class Product extends Component {
     );
   }
 }
-
-export default Product;
+function mapStateToProps(state){
+  return {
+    cart:state.cartReducer.cart
+  }
+}
+function mapDispatchToProps(dispatch){
+  return{
+    dispatchAddCart: (product) => dispatch(addCart(product))
+  }
+}
+export default connect(mapStateToProps, mapDispatchToProps)(Product);

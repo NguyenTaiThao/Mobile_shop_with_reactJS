@@ -9,6 +9,7 @@ import Home from './Home'
 import Product from './Product'
 import Search from './search';
 import Category from './Category'
+import Cart from './Cart'
 class App extends React.Component {
   constructor(props) {
     super(props);
@@ -30,6 +31,7 @@ class App extends React.Component {
                   <Route path="/product-detail/:productId" component={Product} />
                   <Route path="/search" component={Search} />
                   <Route path="/category/:categoryId/:categoryName" component={Category} />
+                  <Route path="/cart" component={Cart} />
                 </Switch>
               </div>
               <SideBanner />
